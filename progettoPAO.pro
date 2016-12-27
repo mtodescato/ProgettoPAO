@@ -4,17 +4,24 @@
 #
 #-------------------------------------------------
 
-QT       += core gui
-
-greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
 TARGET = progettoPAO
 TEMPLATE = app
 CONFIG += c++11
 
+QT += core gui
+QT += widgets
 
-SOURCES += main.cpp
+SOURCES += main.cpp \
+    utente.cpp \
+    admin.cpp \
+    moderatore.cpp \
+    listautenti.cpp
 
-HEADERS  +=
+HEADERS  += \
+    utente.h \
+    admin.h \
+    moderatore.h \
+    listautenti.h
 
 FORMS    +=
