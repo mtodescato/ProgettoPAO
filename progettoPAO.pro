@@ -11,17 +11,20 @@ CONFIG += c++11
 
 QT += core gui
 QT += widgets
+QT += xml
 
 SOURCES += main.cpp \
     utente.cpp \
     admin.cpp \
     moderatore.cpp \
-    listautenti.cpp
+    listautenti.cpp \
+    login.cpp
 
 HEADERS  += \
     utente.h \
     admin.h \
     moderatore.h \
-    listautenti.h
+    listautenti.h \
+    login.h
 
 FORMS    +=

@@ -1,4 +1,5 @@
 #include "listautenti.h"
+#include <QString>
 
 listaUtenti::listaUtenti() {}
 
@@ -37,3 +38,76 @@ std::ostream& operator<< (std::ostream& os, const listaUtenti& list ) {
     }
   return os;
 }
+
+void listaUtenti::caricaListaUtenti() {
+  QFile file("utenti.xml");
+  if(!file.open(QFile::ReadOnly))
+    return;
+  QXmlStreamReader reader(&file);
+
+  if(reader.readNextStartElement())
+    if(reader.name() == "listaUtenti")
+      while(reader.readNextStartElement()) {
+
+      std::string username;
+      std::string password;
+
+      if(reader.readNextStartElement())
+        username = (reader.readElementText()).toStdString();
+
+      if(reader.readNextStartElement())
+        password = (reader.readElementText()).toStdString();
+
+      if(reader.readNextStartElement()) {
+        std::string tipo = reader.readElementText().toStdString();
+        if(tipo == "admin") {
+          admin* tmp = new admin (username,password);
+          lista.push_back(tmp);
+        }
+        else if(tipo == "moderatore") {
+          moderatore* tmp = new moderatore (username,password);
+          lista.push_back(tmp);
+        }
+        else if(tipo == "utente") {
+          utente* tmp = new utente (username,password);
+          lista.push_back(tmp);
+        }
+       }
+       reader.skipCurrentElement();
+     }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

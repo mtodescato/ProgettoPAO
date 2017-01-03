@@ -1,11 +1,11 @@
 #include <iostream>
 #include <QApplication>
-#include "utente.h"
-#include "admin.h"
-#include "moderatore.h"
-#include "listautenti.h"
+#include "login.h"
 
 int main(int argc, char *argv[])
 {
-
+  QApplication app(argc,argv);
+  login log;
+  log.show();
+  return app.exec();
 }
