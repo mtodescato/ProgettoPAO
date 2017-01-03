@@ -17,6 +17,7 @@ public:
   void togliUtente(const utente& );
   bool utentePresente(const utente& );
   void caricaListaUtenti();
+  void caricaUtente(QXmlStreamReader&);
   friend std::ostream& operator<< (std::ostream&, const listaUtenti& );
 
 };
