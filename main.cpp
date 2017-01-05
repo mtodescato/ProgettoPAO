@@ -5,7 +5,9 @@
 int main(int argc, char *argv[])
 {
   QApplication app(argc,argv);
-  login log;
+  listaUtenti lista;
+  lista.caricaListaUtenti();
+  login log(lista);
   log.show();
   return app.exec();
 }

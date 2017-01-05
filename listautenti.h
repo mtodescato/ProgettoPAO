@@ -11,15 +11,14 @@
 class listaUtenti {
 private:
   std::vector<utente*> lista;
+  void caricaUtente(QXmlStreamReader&);
 public:
   listaUtenti();
   void aggiungiUtente(utente & );
   void togliUtente(const utente& );
-  bool utentePresente(const utente& );
+  utente* utentePresente(const utente& ) const;
   void caricaListaUtenti();
-  void caricaUtente(QXmlStreamReader&);
   friend std::ostream& operator<< (std::ostream&, const listaUtenti& );
-
 };
 
 #endif // LISTAUTENTI_H

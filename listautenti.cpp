@@ -10,22 +10,17 @@ void listaUtenti::aggiungiUtente(utente& user) {
 }
 
 void listaUtenti::togliUtente(const utente& user) {
-  bool trovato = false;
-  for(std::vector<utente*>::iterator it = lista.begin(); it<lista.end() && !trovato; ++it) {
-      if(**it == user) {
-          trovato = true;
-          lista.erase(it);
-       }
-    }
+  utente* p = utentePresente(user);
+  if(p) lista.erase(std::find(lista.begin(),lista.end(),p));
+  else std::cout<<"utente non presente" <<std::endl;
 }
 
-bool listaUtenti::utentePresente(const utente& user) {
-  bool trovato = false;
+utente* listaUtenti::utentePresente(const utente& user) const {
   std::vector<utente*>::const_iterator it = lista.begin();
-  for( ;it<lista.end() && !trovato; ++it) {
-      if(**it == user) trovato=true;
+  for( ;it<lista.end(); ++it) {
+      if(**it == user) return *it;
     }
-  return trovato;
+  return 0;
 }
 
 std::ostream& operator<< (std::ostream& os, const listaUtenti& list ) {
