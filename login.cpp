@@ -8,21 +8,47 @@ login::login (const listaUtenti& lst ,QDialog* parent): QDialog(parent),lista(ls
   log->setMinimumSize(200,50);
   passwd.setEchoMode(QLineEdit::Password);
   QFormLayout* Layout = new QFormLayout(this);
-  QHBoxLayout* button = new QHBoxLayout(this);
   Layout->addRow(tr("username"),&userName);
   Layout->addRow(tr("password"),&passwd);
-  button->addWidget(log);
-  Layout->addItem(button);
-  this->setLayout(Layout);
-  connect(log,SIGNAL(clicked()),this,SLOT(effetuaLogin()));
+  Layout->addWidget(log);
+  connect(log,SIGNAL(clicked()),this,SLOT(slotEffetuaLogin()));
+  connect(this,SIGNAL(signalSendLog(int)),this,SLOT(slotOpenTab(int)));
 }
 
 login::~login() {}
 
 
-void login::effetuaLogin() {
+void login::slotEffetuaLogin() {
   std::string nome = (userName.text().toStdString());
   std::string pswd = (passwd.text().toStdString());
+  utente tmp(nome,pswd);
+  utente* p = lista.utentePresente(tmp);
+  int sign = 0;
+  if(p) {
+      sign += p->canView();
+      sign += p->canEdit();
+      sign += p->isAdmin();
+    }
+   emit signalSendLog(sign);
+}
+
+void login::slotOpenTab(int n) {
+  switch (n) {
+    case 1:
+      error.critical(this,"errore","1",QMessageBox::Ok);
+      break;
+    case 2:
+      error.critical(this,"errore","2",QMessageBox::Ok);
+      break;
+    case 3:
+      error.critical(this,"errore","3",QMessageBox::Ok);
+      break;
+    default:
+      error.critical(this,"errore","Username o password errati",QMessageBox::Ok);
+      break;
+    }
+
+
 }
 
 

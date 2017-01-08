@@ -7,6 +7,7 @@
 #include <QLineEdit>
 #include <QHBoxLayout>
 #include <string>
+#include <QMessageBox>
 #include "listautenti.h"
 
 
@@ -16,12 +17,18 @@ private:
   listaUtenti lista;
   QLineEdit userName;
   QLineEdit passwd;
+  QMessageBox error;
 public:
   login(const listaUtenti& ,QDialog* =0);
   ~login();
 public slots:
-  void effetuaLogin();
+  void slotEffetuaLogin();
+  void slotOpenTab(int);
+signals:
+  void signalSendLog(int);
 
 };
+
+
 
 #endif // LOGIN_H

@@ -1,0 +1,5 @@
+<RCC>
+    <qresource prefix="/new">
+        <file>utenti.xml</file>
+    </qresource>
+</RCC>

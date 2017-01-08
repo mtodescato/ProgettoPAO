@@ -28,3 +28,8 @@ HEADERS  += \
     login.h
 
 FORMS    +=
+
+DISTFILES +=
+
+RESOURCES += \
+    ute.qrc

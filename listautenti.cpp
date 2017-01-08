@@ -23,6 +23,17 @@ utente* listaUtenti::utentePresente(const utente& user) const {
   return 0;
 }
 
+/*
+utente* listaUtenti::utentePresente(const std::string& nome, const std::string& passwd) const {
+  std::vector<utente*>::const_iterator it = lista.begin();
+  for(;it<lista.end(); it++) {
+      if((*it)->showUsername()==nome && (*it)->showPassword()==passwd) return *it;
+    }
+  admin* ad = new admin("admin","admin");
+  return ad;
+}
+*/
+
 std::ostream& operator<< (std::ostream& os, const listaUtenti& list ) {
   if(list.lista.empty()) os << "LISTA VUOTA"<< std::endl;
   else {
@@ -35,7 +46,7 @@ std::ostream& operator<< (std::ostream& os, const listaUtenti& list ) {
 }
 
 void listaUtenti::caricaListaUtenti() {
-  QFile file("utenti.xml");
+  QFile file(":/new/utenti.xml");
   if(!file.open(QFile::ReadOnly))
     return;
   QXmlStreamReader reader(&file);

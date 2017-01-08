@@ -14,7 +14,7 @@ public:
   virtual bool isAdmin() const;
   virtual bool canEdit() const;
   virtual bool canView() const;
-  const std::string showUsername() const;
+  std::string showUsername() const;
   bool operator== (const utente&) const;
   bool operator!= (const utente&) const;
   friend std::ostream& operator<< (std::ostream&, const utente&);

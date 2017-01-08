@@ -10,11 +10,11 @@ bool utente::canEdit() const { return false; }
 
 bool utente::canView() const { return true; }
 
-const std::string utente::showUsername() const { return username; }
+std::string utente::showUsername() const { return username; }
 
 bool utente::operator== (const utente& b) const { return username==b.username && password==b.password; }
 
-bool utente::operator!= (const utente& b) const { return username!=b.username && password!=b.password; }
+bool utente::operator!= (const utente& b) const { return username!=b.username || password!=b.password; }
 
 std::ostream& operator<< (std::ostream& os, const utente& u) {
   os <<"username: "<< u.username << " password: "<<u.password;
