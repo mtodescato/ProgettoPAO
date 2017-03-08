@@ -5,9 +5,9 @@
 int main(int argc, char *argv[])
 {
   QApplication app(argc,argv);
-  listaUtenti listaU;
-  listaU.caricaListaUtenti();
-  login log(listaU);
-  log.show();
-  return app.exec();
+    utente* usr = nullptr;
+    listaUtenti listaU;
+    listaU.caricaListaUtenti();
+    login log(listaU, &usr);
+    log.exec();
 }

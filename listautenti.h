@@ -7,17 +7,17 @@
 #include <vector>
 #include <QXmlStreamReader>
 #include <QFile>
+#include <QString>
 
 class listaUtenti {
 private:
   std::vector<utente*> lista;
   void caricaUtente(QXmlStreamReader&);
 public:
-  listaUtenti();
+  ~listaUtenti();
   void aggiungiUtente(utente & );
   void togliUtente(const utente& );
   utente* utentePresente(const utente& ) const;
-  //utente* utentePresente(const std::string&, const std::string&) const;
   void caricaListaUtenti();
   friend std::ostream& operator<< (std::ostream&, const listaUtenti& );
 };

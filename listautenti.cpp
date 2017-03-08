@@ -1,12 +1,24 @@
 #include "listautenti.h"
-#include <QString>
 
-listaUtenti::listaUtenti() {}
+listaUtenti::~listaUtenti() {
+  std::vector<utente*>::iterator it = lista.begin();
+  for(; it!=lista.end();++it) {
+      delete *it;
+    }
+  lista.clear();
+}
 
 void listaUtenti::aggiungiUtente(utente& user) {
-  if(!utentePresente(user)) lista.push_back(&user);
-  else
+std::vector<utente*>::iterator it = lista.begin();
+bool trovato = false;
+for( ; it<lista.end() && !trovato;++it) {
+  if(user.showUsername()==(*it)->showUsername()) trovato = true;
+}
+  if(!trovato) lista.push_back(&user);
+  else {
     std::cout<< user << " ==> utente già presente" << std::endl;
+    delete &user;
+    }
 }
 
 void listaUtenti::togliUtente(const utente& user) {
@@ -22,17 +34,6 @@ utente* listaUtenti::utentePresente(const utente& user) const {
     }
   return 0;
 }
-
-/*
-utente* listaUtenti::utentePresente(const std::string& nome, const std::string& passwd) const {
-  std::vector<utente*>::const_iterator it = lista.begin();
-  for(;it<lista.end(); it++) {
-      if((*it)->showUsername()==nome && (*it)->showPassword()==passwd) return *it;
-    }
-  admin* ad = new admin("admin","admin");
-  return ad;
-}
-*/
 
 std::ostream& operator<< (std::ostream& os, const listaUtenti& list ) {
   if(list.lista.empty()) os << "LISTA VUOTA"<< std::endl;
@@ -70,54 +71,19 @@ void listaUtenti::caricaUtente(QXmlStreamReader& reader) {
     password = (reader.readElementText()).toStdString();
 
   if(reader.readNextStartElement()) {
+    utente* tmp = 0;
     std::string tipo = reader.readElementText().toStdString();
     if(tipo == "admin") {
-      admin* tmp = new admin (username,password);
-      lista.push_back(tmp);
+      tmp = new admin (username,password);
     }
     else if(tipo == "moderatore") {
-      moderatore* tmp = new moderatore (username,password);
-      lista.push_back(tmp);
+      tmp = new moderatore (username,password);
     }
     else if(tipo == "utente") {
-      utente* tmp = new utente (username,password);
-      lista.push_back(tmp);
+      tmp = new utente (username,password);
     }
+
+    if(tmp) this->aggiungiUtente(*tmp);
   }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 

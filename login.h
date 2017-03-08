@@ -14,21 +14,16 @@
 class login : public QDialog {
   Q_OBJECT
 private:
-  listaUtenti lista;
+  listaUtenti& lista;
+  utente** log;
   QLineEdit userName;
   QLineEdit passwd;
   QMessageBox error;
 public:
-  login(const listaUtenti& ,QDialog* =0);
-  ~login();
+  login(listaUtenti& ,utente**, QDialog* =0);
 public slots:
   void slotEffetuaLogin();
-  void slotOpenTab(int);
-signals:
-  void signalSendLog(int);
-
 };
-
 
 
 #endif // LOGIN_H
