@@ -9,7 +9,7 @@ private:
   std::string username;
   std::string password;
 public:
-  utente(std::string, std::string);
+  utente(const std::string&,const std::string&);
   virtual ~utente();
   virtual bool isAdmin() const;
   virtual bool canEdit() const;

@@ -1,6 +1,6 @@
 #include "utente.h"
 
-utente::utente(std::string name, std::string passWD): username(name), password(passWD) {}
+utente::utente(const std::string& name,const std::string& passWD): username(name), password(passWD) {}
 
 utente::~utente() {}
 

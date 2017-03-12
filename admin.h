@@ -5,7 +5,7 @@
 
 class admin : public utente {
 public:
-  admin(std::string, std::string);
+  admin(const std::string&,const std::string&);
   bool isAdmin() const;
   bool canEdit() const;
   bool canView() const;

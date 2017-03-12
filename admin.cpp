@@ -1,6 +1,6 @@
 #include "admin.h"
 
-admin::admin(std::string name, std::string passWD): utente(name,passWD) {}
+admin::admin(const std::string &name, const std::string &passWD): utente(name,passWD) {}
 
 bool admin::isAdmin() const { return true; }
 
