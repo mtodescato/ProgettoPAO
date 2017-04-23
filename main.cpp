@@ -10,5 +10,4 @@ int main(int argc, char *argv[])
     listaU.caricaListaUtenti();
     login log(listaU, &usr);
     log.exec();
-    std::cout<<*usr;
 }

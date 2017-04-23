@@ -32,4 +32,4 @@ FORMS    +=
 DISTFILES +=
 
 RESOURCES += \
-    ute.qrc
+    risorse.qrc

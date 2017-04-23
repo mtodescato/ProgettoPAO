@@ -1,17 +1,17 @@
 #include "listautenti.h"
 
 listaUtenti::~listaUtenti() {
-  std::vector<utente*>::iterator it = lista.begin();
-  for(; it!=lista.end();++it) {
+  std::list<utente*>::iterator it = lista.begin();
+  for(; it != lista.end();++it) {
       delete *it;
     }
   lista.clear();
 }
 
 void listaUtenti::aggiungiUtente(utente& user) {
-std::vector<utente*>::iterator it = lista.begin();
+std::list<utente*>::iterator it = lista.begin();
 bool trovato = false;
-for( ; it<lista.end() && !trovato;++it) {
+for( ; it != lista.end() && !trovato;++it) {
   if(user.showUsername()==(*it)->showUsername()) trovato = true;
 }
   if(!trovato) lista.push_back(&user);
@@ -28,8 +28,8 @@ void listaUtenti::togliUtente(const utente& user) {
 }
 
 utente* listaUtenti::utentePresente(const utente& user) const {
-  std::vector<utente*>::const_iterator it = lista.begin();
-  for( ;it<lista.end(); ++it) {
+  std::list<utente*>::const_iterator it = lista.begin();
+  for( ;it != lista.end(); ++it) {
       if(**it == user) return *it;
     }
   return 0;
@@ -39,7 +39,7 @@ std::ostream& operator<< (std::ostream& os, const listaUtenti& list ) {
   if(list.lista.empty()) os << "LISTA VUOTA"<< std::endl;
   else {
       os << "LISTA UTENTI:" << std::endl;
-      for(std::vector<utente*>::const_iterator it = list.lista.begin(); it<list.lista.end(); ++it) {
+      for(std::list<utente*>::const_iterator it = list.lista.begin(); it != list.lista.end(); ++it) {
           os << **it << std::endl;
         }
     }
@@ -47,7 +47,7 @@ std::ostream& operator<< (std::ostream& os, const listaUtenti& list ) {
 }
 
 void listaUtenti::caricaListaUtenti() {
-  QFile file(":/new/utenti.xml");
+  QFile file(":/users/utenti.xml");
   if(!file.open(QFile::ReadOnly))
     return;
   QXmlStreamReader reader(&file);
@@ -86,4 +86,3 @@ void listaUtenti::caricaUtente(QXmlStreamReader& reader) {
     if(tmp) this->aggiungiUtente(*tmp);
   }
 }
-

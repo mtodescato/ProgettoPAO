@@ -11,7 +11,7 @@
 
 class listaUtenti {
 private:
-  std::vector<utente*> lista;
+  std::list<utente*> lista;
   void caricaUtente(QXmlStreamReader&);
 public:
   ~listaUtenti();

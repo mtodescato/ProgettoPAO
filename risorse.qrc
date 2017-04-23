@@ -1,5 +1,5 @@
 <RCC>
-    <qresource prefix="/new">
+    <qresource prefix="/users">
         <file>utenti.xml</file>
     </qresource>
 </RCC>
