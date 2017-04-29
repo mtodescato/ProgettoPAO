@@ -4,10 +4,15 @@
 
 int main(int argc, char *argv[])
 {
+  /*
   QApplication app(argc,argv);
     utente* usr = nullptr;
     listaUtenti listaU;
     listaU.caricaListaUtenti();
     login log(listaU, &usr);
     log.exec();
+    */
+  listaUtenti p;
+  p.caricaListaUtenti();
+  std::cout<<p;
 }

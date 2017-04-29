@@ -4,10 +4,12 @@
 #include "utente.h"
 #include "admin.h"
 #include "moderatore.h"
+#include "funzioniutili.h"
 #include <vector>
 #include <QXmlStreamReader>
 #include <QFile>
 #include <QString>
+
 
 class listaUtenti {
 private:
@@ -15,8 +17,8 @@ private:
   void caricaUtente(QXmlStreamReader&);
 public:
   ~listaUtenti();
-  void aggiungiUtente(utente & );
-  void togliUtente(const utente& );
+  bool aggiungiUtente(utente & );
+  bool togliUtente(const utente& );
   utente* utentePresente(const utente& ) const;
   void caricaListaUtenti();
   friend std::ostream& operator<< (std::ostream&, const listaUtenti& );

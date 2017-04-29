@@ -18,14 +18,16 @@ SOURCES += main.cpp \
     admin.cpp \
     moderatore.cpp \
     listautenti.cpp \
-    login.cpp
+    login.cpp \
+    funzioniutili.cpp
 
 HEADERS  += \
     utente.h \
     admin.h \
     moderatore.h \
     listautenti.h \
-    login.h
+    login.h \
+    funzioniutili.h
 
 FORMS    +=
 

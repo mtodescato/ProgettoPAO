@@ -8,23 +8,25 @@ listaUtenti::~listaUtenti() {
   lista.clear();
 }
 
-void listaUtenti::aggiungiUtente(utente& user) {
-std::list<utente*>::iterator it = lista.begin();
-bool trovato = false;
-for( ; it != lista.end() && !trovato;++it) {
-  if(user.showUsername()==(*it)->showUsername()) trovato = true;
-}
-  if(!trovato) lista.push_back(&user);
-  else {
-    std::cout<< user << " ==> utente già presente" << std::endl;
-    delete &user;
+bool listaUtenti::aggiungiUtente(utente& user) {
+  utente* usr = utentePresente(user);
+  if(!usr) {
+      lista.push_back(&user);
+      return true;
     }
+  else
+    return false;
+
 }
 
-void listaUtenti::togliUtente(const utente& user) {
+bool listaUtenti::togliUtente(const utente& user) {
   utente* p = utentePresente(user);
-  if(p) lista.erase(std::find(lista.begin(),lista.end(),p));
-  else std::cout<<"utente non presente" <<std::endl;
+  if(p) {
+      lista.erase(std::find(lista.begin(),lista.end(),p));
+      return true;
+    }
+  else
+    return false;
 }
 
 utente* listaUtenti::utentePresente(const utente& user) const {
@@ -47,7 +49,7 @@ std::ostream& operator<< (std::ostream& os, const listaUtenti& list ) {
 }
 
 void listaUtenti::caricaListaUtenti() {
-  QFile file(":/users/utenti.xml");
+  QFile file(":/risorse/utenti.xml");
   if(!file.open(QFile::ReadOnly))
     return;
   QXmlStreamReader reader(&file);
@@ -61,14 +63,8 @@ void listaUtenti::caricaListaUtenti() {
 }
 
 void listaUtenti::caricaUtente(QXmlStreamReader& reader) {
-  std::string username;
-  std::string password;
-
-  if(reader.readNextStartElement())
-    username = (reader.readElementText()).toStdString();
-
-  if(reader.readNextStartElement())
-    password = (reader.readElementText()).toStdString();
+  std::string username = readeXmlString(reader);
+  std::string password = readeXmlString(reader);
 
   if(reader.readNextStartElement()) {
     utente* tmp = 0;
@@ -83,6 +79,11 @@ void listaUtenti::caricaUtente(QXmlStreamReader& reader) {
       tmp = new utente (username,password);
     }
 
-    if(tmp) this->aggiungiUtente(*tmp);
+    if(tmp)
+      {
+        bool inserito = this->aggiungiUtente(*tmp);
+        if(!inserito)
+          delete tmp;
+    }
   }
 }
