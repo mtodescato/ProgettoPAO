@@ -63,8 +63,8 @@ void listaUtenti::caricaListaUtenti() {
 }
 
 void listaUtenti::caricaUtente(QXmlStreamReader& reader) {
-  std::string username = readeXmlString(reader);
-  std::string password = readeXmlString(reader);
+  std::string username = readXmlString(reader);
+  std::string password = readXmlString(reader);
 
   if(reader.readNextStartElement()) {
     utente* tmp = 0;
@@ -81,9 +81,7 @@ void listaUtenti::caricaUtente(QXmlStreamReader& reader) {
 
     if(tmp)
       {
-        bool inserito = this->aggiungiUtente(*tmp);
-        if(!inserito)
-          delete tmp;
+        lista.push_back(tmp);
     }
   }
 }

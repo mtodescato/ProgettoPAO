@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<listaPubblicazioni>
+  <pubblicazioneOnline>
+    <titolo>titolo</titolo>
+    <autore>autore</autore>
+    <doi>doi</doi>
+    <materia>materia</materia>
+    <descrizione>descrizione</descrizione>
+    <lingua>lingua</lingua>
+    <sitoPubblicazione>sito</sitoPubblicazione>
+    <linkPubblicazione>link</linkPubblicazione>
+    <anno>2015</anno>
+    <mese>3</mese>
+    <giorno>1</giorno>
+  </pubblicazioneOnline>
+  <libro>
+    <titolo>titolo</titolo>
+    <autore>autore</autore>
+    <doi>doi</doi>
+    <materia>materia</materia>
+    <descrizione>descrizione</descrizione>
+    <lingua>lingua</lingua>
+    <casaEditrice>casaEditrice</casaEditrice>
+    <annoDiPubblicazione>1996</annoDiPubblicazione>
+    <isbn>isbn</isbn>
+  </libro>
+  <articoloRivista>
+    <titolo>titolo</titolo>
+    <autore>autore</autore>
+    <doi>doi</doi>
+    <materia>materia</materia>
+    <descrizione>descrizione</descrizione>
+    <lingua>lingua</lingua>
+    <casaEditrice>casaEditrice</casaEditrice>
+    <nomeRivivsta>nomeRivivsta</nomeRivivsta>
+    <issn>issn</issn>
+    <numeroUscita>4444</numeroUscita>
+    <anno>1974</anno>
+    <mese>7</mese>
+    <giorno>3</giorno>
+  </articoloRivista>
+</listaPubblicazioni>

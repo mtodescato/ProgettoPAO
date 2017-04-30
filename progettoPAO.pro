@@ -19,7 +19,14 @@ SOURCES += main.cpp \
     moderatore.cpp \
     listautenti.cpp \
     login.cpp \
-    funzioniutili.cpp
+    funzioniutili.cpp \
+    astrattapubblicazione.cpp \
+    pubblicazioneonline.cpp \
+    astrattapubblicazionestampata.cpp \
+    libro.cpp \
+    articolorivista.cpp \
+    filefactory.cpp \
+    listapubblicazioni.cpp
 
 HEADERS  += \
     utente.h \
@@ -27,7 +34,14 @@ HEADERS  += \
     moderatore.h \
     listautenti.h \
     login.h \
-    funzioniutili.h
+    funzioniutili.h \
+    astrattapubblicazione.h \
+    pubblicazioneonline.h \
+    astrattapubblicazionestampata.h \
+    libro.h \
+    articolorivista.h \
+    filefactory.h \
+    listapubblicazioni.h
 
 FORMS    +=
 

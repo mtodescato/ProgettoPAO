@@ -4,7 +4,8 @@
 #include <string>
 #include <QXmlStreamReader>
 
-std::string readeXmlString(QXmlStreamReader& );
+std::string readXmlString(QXmlStreamReader& );
+int readXmlint(QXmlStreamReader& );
 
 
 #endif // FUNZIONIUTILI_H
