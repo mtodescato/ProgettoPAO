@@ -50,10 +50,10 @@ std::ostream& operator<< (std::ostream& os, const listaPubblicazioni& l) {
   return os;
 }
 
-void listaPubblicazioni::caricaListaPubblicazioni() {
-  QFile file(":/risorse/pubblicazioni.xml");
+bool listaPubblicazioni::caricaListaPubblicazioni() {
+  QFile file("pubblicazioni.xml");
   if(!file.open(QFile::ReadOnly))
-    return;
+    return false;
   QXmlStreamReader reader(&file);
 
   if(reader.readNextStartElement())
@@ -62,6 +62,7 @@ void listaPubblicazioni::caricaListaPubblicazioni() {
       this->caricaPubblicazione(reader);
       reader.skipCurrentElement();
     }
+    return true;
 }
 
 void listaPubblicazioni::caricaPubblicazione(QXmlStreamReader& reader) {
@@ -69,4 +70,21 @@ void listaPubblicazioni::caricaPubblicazione(QXmlStreamReader& reader) {
   astrattaPubblicazione* tmp = fileFactory::buildFromXml(reader, tipo);
   if(tmp)
     pubblicazioni.push_back(tmp);
+}
+
+bool listaPubblicazioni::scriviListaPubblicazioni() const {
+  QFile file("pubblicazioni.xml");
+  if(!file.open(QFile::WriteOnly))
+    return false;
+  QXmlStreamWriter writer(&file);
+  writer.setAutoFormatting(true);
+  writer.writeStartDocument();
+  writer.writeStartElement("listaPubblicazioni");
+
+  auto it = pubblicazioni.begin();
+  for(; it!=pubblicazioni.end(); ++it )
+    (*it)->scriviPubblicazione(writer);
+  writer.writeEndElement();
+
+  return true;
 }

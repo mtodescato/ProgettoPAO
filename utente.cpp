@@ -20,3 +20,11 @@ std::ostream& operator<< (std::ostream& os, const utente& u) {
   os <<"username: "<< u.username << " password: "<<u.password;
   return os;
 }
+
+std::string utente::tipoUtente() const { return "utente"; }
+
+void utente::writexml(QXmlStreamWriter& writer) const {
+  writer.writeTextElement(QString::fromStdString("username"),QString::fromStdString(username));
+  writer.writeTextElement(QString::fromStdString("password"),QString::fromStdString(password));
+  writer.writeTextElement(QString::fromStdString("tipoUtente"),QString::fromStdString(this->tipoUtente()));
+}

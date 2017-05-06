@@ -10,6 +10,7 @@
 #include <QString>
 
 
+
 class listaPubblicazioni {
 private:
   std::vector<astrattaPubblicazione*> pubblicazioni;
@@ -19,9 +20,9 @@ public:
   bool aggiungiPubblicazione( astrattaPubblicazione& );
   bool togliPubblicazione(const astrattaPubblicazione& );
   astrattaPubblicazione* pubblicazionePresente(const astrattaPubblicazione& ) const;
-  void caricaListaPubblicazioni();
+  bool caricaListaPubblicazioni();
+  bool scriviListaPubblicazioni() const;
   friend std::ostream& operator<< (std::ostream&, const listaPubblicazioni& );
-
 };
 
 #endif // LISTAPUBBLICAZIONI_H

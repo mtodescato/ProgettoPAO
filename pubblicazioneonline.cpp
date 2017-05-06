@@ -13,6 +13,8 @@ std::string pubblicazioneOnline::getSitoPubblicazione() const {return sitoPubbli
 
 std::string pubblicazioneOnline::getLinkPubbliczione() const { return linkPubblicazione; }
 
+std::string pubblicazioneOnline::getTipo() const { return "pubblicazioneOnline"; }
+
 void pubblicazioneOnline::printp(std::ostream& os) const {
   this->astrattaPubblicazione::printp(os);
   os << "Sito pubblicazione: " << sitoPubblicazione << std::endl;
@@ -33,5 +35,15 @@ pubblicazioneOnline* pubblicazioneOnline::importFromXml(QXmlStreamReader& reader
   int mm = readXmlint(reader);
   int gg = readXmlint(reader);
   return new pubblicazioneOnline(sito,link,titolo,autore,doi,aa,mm,gg,materia,descrizione,lingua);
+}
+
+void pubblicazioneOnline::scriviPubblicazione(QXmlStreamWriter& writer) const { //da completare
+  this->astrattaPubblicazione::scriviPubblicazione(writer);
+  writer.writeTextElement(QString::fromStdString("sitoPubblicazione"),QString::fromStdString(sitoPubblicazione));
+  writer.writeTextElement(QString::fromStdString("linkPubblicazione"),QString::fromStdString(linkPubblicazione));
+  writer.writeTextElement(QString::fromStdString("anno"),QString::number(dataPubblicazione.year()));
+  writer.writeTextElement(QString::fromStdString("mese"),QString::number(dataPubblicazione.month()));
+  writer.writeTextElement(QString::fromStdString("giorno"),QString::number(dataPubblicazione.day()));
+  writer.writeEndElement();
 
 }

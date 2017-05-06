@@ -11,6 +11,10 @@ std::string articoloRivista::getCodiceRiferimento() const { return ISSN; }
 
 std::string articoloRivista::getNomeRivista() const { return nomeRivivsta; }
 
+unsigned int articoloRivista::getNumeroUscita() const { return numeroUscita; }
+
+std::string articoloRivista::getTipo() const { return "articoloRivista"; }
+
 void articoloRivista::printp (std::ostream& os) const {
   this->astrattaPubblicazioneStampata::printp(os);
   os << "Nome rivista: " << nomeRivivsta << std::endl;
@@ -34,4 +38,15 @@ articoloRivista* articoloRivista::importFromXml(QXmlStreamReader& reader) {
   int mm = readXmlint(reader);
   int gg = readXmlint(reader);
   return new articoloRivista(nomeRivivsta,issn,casaEditrice,titolo,autore,numeroUscita,aa,mm,gg,doi,materia,descrizione,lingua);
+}
+
+void articoloRivista::scriviPubblicazione(QXmlStreamWriter& writer) const {
+  this->astrattaPubblicazioneStampata::scriviPubblicazione(writer);
+  writer.writeTextElement(QString::fromStdString("nomeRivivsta"),QString::fromStdString(nomeRivivsta));
+  writer.writeTextElement(QString::fromStdString("issn"),QString::fromStdString(ISSN));
+  writer.writeTextElement(QString::fromStdString("numeroUscita"),QString::number(numeroUscita));
+  writer.writeTextElement(QString::fromStdString("anno"),QString::number(dataPubblicazione.year()));
+  writer.writeTextElement(QString::fromStdString("mese"),QString::number(dataPubblicazione.month()));
+  writer.writeTextElement(QString::fromStdString("giorno"),QString::number(dataPubblicazione.day()));
+  writer.writeEndElement();
 }

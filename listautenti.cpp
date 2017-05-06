@@ -1,5 +1,6 @@
 #include "listautenti.h"
 
+
 listaUtenti::~listaUtenti() {
   std::list<utente*>::iterator it = lista.begin();
   for(; it != lista.end();++it) {
@@ -48,23 +49,29 @@ std::ostream& operator<< (std::ostream& os, const listaUtenti& list ) {
   return os;
 }
 
-void listaUtenti::caricaListaUtenti() {
-  QFile file(":/risorse/utenti.xml");
+bool listaUtenti::caricaListaUtenti() {
+  QFile file("utenti.xml");
   if(!file.open(QFile::ReadOnly))
-    return;
+    return false;
   QXmlStreamReader reader(&file);
-
   if(reader.readNextStartElement())
     if(reader.name() == "listaUtenti")
       while(reader.readNextStartElement()) {
       this->caricaUtente(reader);
       reader.skipCurrentElement();
      }
+     return true;
 }
 
 void listaUtenti::caricaUtente(QXmlStreamReader& reader) {
-  std::string username = readXmlString(reader);
-  std::string password = readXmlString(reader);
+  std::string username;
+  std::string password;
+
+  if(reader.readNextStartElement())
+    username = (reader.readElementText()).toStdString();
+
+  if(reader.readNextStartElement())
+    password = (reader.readElementText()).toStdString();
 
   if(reader.readNextStartElement()) {
     utente* tmp = 0;
@@ -79,9 +86,26 @@ void listaUtenti::caricaUtente(QXmlStreamReader& reader) {
       tmp = new utente (username,password);
     }
 
-    if(tmp)
-      {
-        lista.push_back(tmp);
-    }
+    lista.push_back(tmp);
   }
+}
+
+bool listaUtenti::scriviListaUtenti() const {
+  QFile file("utenti.xml");
+  if(!file.open(QFile::WriteOnly))
+    return false;
+  QXmlStreamWriter writer(&file);
+  writer.setAutoFormatting(true);
+  writer.writeStartDocument();
+  writer.writeStartElement("listaUtenti");
+
+  auto it = lista.begin();
+  for(; it!=lista.end(); ++it ) {
+    writer.writeStartElement("utente");
+    (*it)->utente::writexml( writer);
+    writer.writeEndElement();
+  }
+  writer.writeEndElement();
+
+  return true;
 }

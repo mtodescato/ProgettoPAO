@@ -9,6 +9,7 @@ public:
   bool isAdmin() const;
   bool canEdit() const;
   bool canView() const;
+  std::string tipoUtente() const;
 };
 
 #endif // MODERATORE_H

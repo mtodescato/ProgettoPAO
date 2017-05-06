@@ -15,8 +15,11 @@ public:
   virtual QDate getDataPubblicazione() const;
   virtual std::string getCodiceRiferimento() const;
   virtual void printp (std::ostream&) const;
+  virtual std::string getTipo() const;
   std::string getNomeRivista() const;
+  unsigned int getNumeroUscita() const;
   static articoloRivista* importFromXml(QXmlStreamReader& );
+  virtual void scriviPubblicazione(QXmlStreamWriter& ) const;
 };
 
 #endif // ARTICOLORIVISTA_H

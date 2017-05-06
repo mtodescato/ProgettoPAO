@@ -3,6 +3,7 @@
 
 #include "astrattapubblicazione.h"
 
+
 class pubblicazioneOnline : public astrattaPubblicazione {
 private:
   std::string sitoPubblicazione;
@@ -16,7 +17,10 @@ public:
   virtual void printp(std::ostream&) const;
   std::string getSitoPubblicazione() const;
   std::string getLinkPubbliczione() const;
+  virtual std::string getTipo() const;
   static pubblicazioneOnline* importFromXml(QXmlStreamReader& );
+  virtual void scriviPubblicazione(QXmlStreamWriter& ) const;
 };
+
 
 #endif // PUBBLICAZIONEONLINE_H

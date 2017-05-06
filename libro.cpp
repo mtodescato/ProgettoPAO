@@ -9,6 +9,8 @@ QDate libro::getDataPubblicazione() const { return QDate(annoDiPubblicazione,1,1
 
 std::string libro::getCodiceRiferimento() const { return ISBN; };
 
+std::string libro::getTipo() const { return "libro"; }
+
 void libro::printp(std::ostream& os) const {
   astrattaPubblicazioneStampata::printp(os);
   os << "Anno di pubblicazione: " << annoDiPubblicazione << std::endl;
@@ -27,3 +29,11 @@ libro* libro::importFromXml(QXmlStreamReader& reader) {
   std::string isbn = readXmlString(reader);
   return new libro(aa,isbn,casaEditrice,titolo,autore,doi,materia,descrizione,lingua);
 }
+
+void libro::scriviPubblicazione(QXmlStreamWriter& writer) const  {
+  this->astrattaPubblicazioneStampata::scriviPubblicazione(writer);
+  writer.writeTextElement(QString::fromStdString("annoDiPubblicazione"),QString::number(annoDiPubblicazione));
+  writer.writeTextElement(QString::fromStdString("isbn"),QString::fromStdString(ISBN));
+  writer.writeEndElement();
+}
+

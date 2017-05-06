@@ -7,3 +7,10 @@ void astrattaPubblicazioneStampata::printp(std::ostream& os) const {
   this->astrattaPubblicazione::printp(os);
   os << "Casa editrice: " << this->casaEditrice << std::endl;
 }
+
+void astrattaPubblicazioneStampata::scriviPubblicazione(QXmlStreamWriter& writer) const {
+  this->astrattaPubblicazione::scriviPubblicazione(writer);
+  writer.writeTextElement(QString::fromStdString("casaEditrice"),QString::fromStdString(casaEditrice));
+}
+
+std::string astrattaPubblicazioneStampata::getCasaEditrice() const { return casaEditrice; }

@@ -7,3 +7,5 @@ bool admin::isAdmin() const { return true; }
 bool admin::canEdit() const { return true; }
 
 bool admin::canView() const { return true; }
+
+std::string admin::tipoUtente() const { return "admin"; }
