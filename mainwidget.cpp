@@ -1,7 +1,7 @@
 #include "mainwidget.h"
 
  mainWidget::mainWidget(utente* usr, listaUtenti& ulist, listaPubblicazioni& plist , bool* rl, QMainWindow* parent)
-   :QWidget(parent),user(usr),listaU(ulist),listaP(plist),relog(rl) {
+   :QWidget(parent),user(usr),listaU(ulist),listaP(plist),relog(rl),ordinatoTitolo(false),ordinatoAutore(false),ordinatoCodiceRiferimento(false),ordinatoAnno(false) {
    gLayout = new QGridLayout(this);
 
    search = new QLineEdit(this);
@@ -157,6 +157,7 @@
        break;
      }
    refreshLista();
+
  }
 
 

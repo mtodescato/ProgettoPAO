@@ -23,7 +23,6 @@ int main(int argc, char *argv[])
   log.exec();
   listaPubblicazioni listaP;
   listaP.caricaListaPubblicazioni();
-  //usr=listaU.utentePresente(admin("admin","admin"));
   if(usr) {
   listaPubblicazioni listaP;
   listaP.caricaListaPubblicazioni();
