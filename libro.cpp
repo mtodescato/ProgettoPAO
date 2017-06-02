@@ -37,3 +37,11 @@ void libro::scriviPubblicazione(QXmlStreamWriter& writer) const  {
   writer.writeEndElement();
 }
 
+bool libro::setISBN(std::string nISBN) {
+   if(nISBN!="")
+     ISBN=nISBN;
+   return nISBN!="";
+}
+
+void libro::setAnnoDiPubblicazione(unsigned int nap) { annoDiPubblicazione = nap; }
+

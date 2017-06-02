@@ -47,3 +47,32 @@ void pubblicazioneOnline::scriviPubblicazione(QXmlStreamWriter& writer) const { 
   writer.writeEndElement();
 
 }
+
+bool pubblicazioneOnline::setDOI(std::string nDOI) {
+  if(nDOI != "")
+    astrattaPubblicazione::setDOI(nDOI);
+  return nDOI!="";
+}
+
+bool pubblicazioneOnline::setsitoPubblicazione(std::string nSitoP) {
+  if(nSitoP!="")
+    sitoPubblicazione = nSitoP;
+  return nSitoP != "";
+}
+
+bool pubblicazioneOnline::setlinkPubblicazione(std::string nLinkP){
+  if(nLinkP!="")
+    linkPubblicazione = nLinkP;
+  return nLinkP != "";
+}
+
+bool pubblicazioneOnline::setdataPubblicazione(QString data){
+  if(data != "")
+    dataPubblicazione = QDate(QDate::fromString(data,"d/M/yyyy"));
+  return data != "";
+}
+
+
+
+
+

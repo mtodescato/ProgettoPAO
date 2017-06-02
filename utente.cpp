@@ -10,7 +10,18 @@ bool utente::canEdit() const { return false; }
 
 bool utente::canView() const { return true; }
 
+utente* utente::clone() const { return new utente(*this); }
+
 std::string utente::showUsername() const { return username; }
+
+std::string utente::showPassword() const { return password; }
+
+bool utente::setUsername(std::string name) {
+  if(name != "")
+    username=name; return true;
+}
+
+void utente::setPassword(std::string passwd) { password=passwd; }
 
 bool utente::operator== (const utente& b) const { return username==b.username && password==b.password; }
 

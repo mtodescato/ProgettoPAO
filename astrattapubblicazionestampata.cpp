@@ -14,3 +14,5 @@ void astrattaPubblicazioneStampata::scriviPubblicazione(QXmlStreamWriter& writer
 }
 
 std::string astrattaPubblicazioneStampata::getCasaEditrice() const { return casaEditrice; }
+
+void astrattaPubblicazioneStampata::setCasaEditrice(std::string nCasaEditrice) { casaEditrice = nCasaEditrice; }

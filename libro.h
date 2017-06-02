@@ -16,6 +16,8 @@ public:
   virtual void printp(std::ostream&) const;
   static libro* importFromXml(QXmlStreamReader& );
   virtual void scriviPubblicazione(QXmlStreamWriter& ) const;
+  bool setISBN(std::string);
+  void setAnnoDiPubblicazione(unsigned int);
 };
 
 

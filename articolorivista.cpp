@@ -50,3 +50,28 @@ void articoloRivista::scriviPubblicazione(QXmlStreamWriter& writer) const {
   writer.writeTextElement(QString::fromStdString("giorno"),QString::number(dataPubblicazione.day()));
   writer.writeEndElement();
 }
+
+void articoloRivista::setNomeRivista(std::string nRivista) { nomeRivivsta = nRivista; }
+
+bool articoloRivista::setISSN(std::string nISSN) {
+  if(nISSN != "")
+    ISSN = nISSN;
+  return nISSN != "";
+}
+
+bool articoloRivista::setNumeroUscita(unsigned int nu) {
+  if(nu!=0)
+    numeroUscita = nu;
+  return nu!=0;
+}
+
+bool articoloRivista::setDataPubblicazione(QString data) {
+  if(data != "")
+    dataPubblicazione = QDate(QDate::fromString(data,"d/M/yyyy"));
+  return data != "";
+}
+
+
+
+
+

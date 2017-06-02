@@ -1,13 +1,34 @@
 #include "listautenti.h"
 
 
-listaUtenti::~listaUtenti() {
-  std::list<utente*>::iterator it = lista.begin();
-  for(; it != lista.end();++it) {
+listaUtenti::~listaUtenti() { distruggi(lista); }
+
+std::list<utente*> listaUtenti::copia(const std::list<utente*>& lista) {
+  std::list<utente*> tmp;
+  auto it = lista.begin();
+  for(; it!=lista.end(); ++it) {
+      tmp.push_back((*it)->clone());
+    }
+  return tmp;
+}
+
+void listaUtenti::distruggi(std::list<utente*>& lista) {
+  auto it = lista.begin();
+  for(;it!=lista.end();++it) {
       delete *it;
     }
   lista.clear();
 }
+
+listaUtenti& listaUtenti::operator= (const listaUtenti& l2) {
+  if(this != &l2) {
+      distruggi(lista);
+      lista = copia(l2.lista);
+    }
+  return *this;
+}
+
+listaUtenti::listaUtenti(const listaUtenti& l):lista(copia(l.lista)) {}
 
 bool listaUtenti::aggiungiUtente(utente& user) {
   utente* usr = utentePresente(user);
@@ -28,6 +49,24 @@ bool listaUtenti::togliUtente(const utente& user) {
     }
   else
     return false;
+}
+
+bool listaUtenti::togliUtente(std::string nome) {
+  utente* p = utentePresente(nome);
+  if(p) {
+      lista.erase(std::find(lista.begin(),lista.end(),p));
+      return true;
+    }
+  else
+    return false;
+}
+
+utente* listaUtenti::utentePresente(std::string nome) const {
+  std::list<utente*>::const_iterator it = lista.begin();
+  for( ;it != lista.end(); ++it) {
+      if((*it)->showUsername() == nome) return *it;
+    }
+  return 0;
 }
 
 utente* listaUtenti::utentePresente(const utente& user) const {
@@ -109,3 +148,41 @@ bool listaUtenti::scriviListaUtenti() const {
 
   return true;
 }
+
+//iteratori
+
+listaUtenti::iterator::iterator(std::list<utente*>::iterator i):it(i) {}
+
+bool listaUtenti::iterator::operator== ( const iterator& it2) const { return it == it2.it; }
+
+bool listaUtenti::iterator::operator!= ( const iterator& it2 ) const { return it != it2.it; }
+
+listaUtenti::iterator& listaUtenti::iterator::operator++ () { ++it; return *this; }
+
+listaUtenti::iterator listaUtenti::iterator::operator ++(int) { iterator tmp = (it) ; it++; return tmp; }
+
+utente* listaUtenti::iterator::operator* () const { return *it; }
+
+listaUtenti::iterator& listaUtenti::iterator::operator= (const iterator& it2) { it = it2.it; return *this; }
+
+
+
+listaUtenti::const_iterator::const_iterator(iterator i): it(i.it) {}
+
+listaUtenti::const_iterator::const_iterator(std::list<utente*>::const_iterator i):it(i) {}
+
+bool listaUtenti::const_iterator::operator== ( const const_iterator& it2) const { return it == it2.it; }
+
+bool listaUtenti::const_iterator::operator!= (const const_iterator& it2) const { return it != it2.it; }
+
+listaUtenti::const_iterator& listaUtenti::const_iterator::operator++ () { ++it; return *this; }
+
+listaUtenti::const_iterator listaUtenti::const_iterator::operator ++(int) { const_iterator tmp = (it) ; it++; return tmp; }
+
+listaUtenti::const_iterator& listaUtenti::const_iterator::operator= (const const_iterator& it2) { it = it2.it; return *this; }
+
+const utente* listaUtenti::const_iterator::operator* () const { return *it; }
+
+listaUtenti::iterator listaUtenti::begin()  { return lista.begin(); }
+listaUtenti::iterator listaUtenti::end()  { return lista.end(); }
+

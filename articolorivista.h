@@ -20,6 +20,10 @@ public:
   unsigned int getNumeroUscita() const;
   static articoloRivista* importFromXml(QXmlStreamReader& );
   virtual void scriviPubblicazione(QXmlStreamWriter& ) const;
+  void setNomeRivista(std::string);
+  bool setISSN(std::string);
+  bool setNumeroUscita(unsigned int);
+  bool setDataPubblicazione(QString);
 };
 
 #endif // ARTICOLORIVISTA_H

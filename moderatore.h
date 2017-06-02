@@ -10,6 +10,7 @@ public:
   bool canEdit() const;
   bool canView() const;
   std::string tipoUtente() const;
+  virtual moderatore* clone() const;
 };
 
 #endif // MODERATORE_H

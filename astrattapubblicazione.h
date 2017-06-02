@@ -30,6 +30,12 @@ public:
   std::string getMateria() const;
   std::string getDescrizione() const;
   std::string getLinguaOriginale() const;
+  bool setTitolo(std::string);
+  bool setAutore(std::string);
+  virtual bool setDOI(std::string);
+  void setMateria(std::string);
+  void setDescrizione(std::string);
+  void setLinguaOriginale(std::string);
   bool operator== (const astrattaPubblicazione&) const;
   bool operator!= (const astrattaPubblicazione&) const;
   friend std::ostream& operator<< (std::ostream&, const astrattaPubblicazione&);

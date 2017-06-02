@@ -12,6 +12,7 @@ public:
   virtual void printp(std::ostream&) const;
   virtual void scriviPubblicazione(QXmlStreamWriter& ) const;
   std::string getCasaEditrice() const;
+  void setCasaEditrice(std::string);
 };
 
 #endif // ASTRATTAPUBBLICAZIONESTAMPATA_H

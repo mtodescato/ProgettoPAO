@@ -2,6 +2,7 @@
 #define PUBBLICAZIONEONLINE_H
 
 #include "astrattapubblicazione.h"
+#include <QString>
 
 
 class pubblicazioneOnline : public astrattaPubblicazione {
@@ -17,6 +18,10 @@ public:
   virtual void printp(std::ostream&) const;
   std::string getSitoPubblicazione() const;
   std::string getLinkPubbliczione() const;
+  virtual bool setDOI(std::string);
+  bool setsitoPubblicazione(std::string);
+  bool setlinkPubblicazione(std::string);
+  bool setdataPubblicazione(QString);
   virtual std::string getTipo() const;
   static pubblicazioneOnline* importFromXml(QXmlStreamReader& );
   virtual void scriviPubblicazione(QXmlStreamWriter& ) const;

@@ -9,3 +9,5 @@ bool admin::canEdit() const { return true; }
 bool admin::canView() const { return true; }
 
 std::string admin::tipoUtente() const { return "admin"; }
+
+admin* admin::clone() const { return new admin(*this); }

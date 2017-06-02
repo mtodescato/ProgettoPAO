@@ -1,9 +1,6 @@
 #include "login.h"
 
 
-#include "login.h"
-
-
 login::login (listaUtenti& lst ,utente** l,QDialog* parent): QDialog(parent),lista(lst), log(l){
   setWindowTitle("Login");
   QPushButton* log = new QPushButton(tr("login"),this);
@@ -14,7 +11,6 @@ login::login (listaUtenti& lst ,utente** l,QDialog* parent): QDialog(parent),lis
   Layout->addRow(tr("password"),&passwd);
   Layout->addWidget(log);
   connect(log,SIGNAL(clicked()),this,SLOT(slotEffetuaLogin()));
-  //connect(this,SIGNAL(signalSendLog(int)),this,SLOT(slotOpenTab(int)));
   setFixedSize(sizeHint());
   userName.setFocus();
 }

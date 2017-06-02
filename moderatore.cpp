@@ -9,3 +9,5 @@ bool moderatore::canEdit() const { return true; }
 bool moderatore::canView() const { return true; }
 
 std::string moderatore::tipoUtente() const { return "moderatore"; }
+
+moderatore* moderatore::clone() const { return new moderatore(*this); }

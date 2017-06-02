@@ -16,7 +16,11 @@ public:
   virtual bool canEdit() const;
   virtual bool canView() const;
   virtual std::string tipoUtente() const;
+  virtual utente* clone() const;
   std::string showUsername() const;
+  std::string showPassword() const;
+  bool setUsername(std::string);
+  void setPassword(std::string);
   bool operator== (const utente&) const;
   bool operator!= (const utente&) const;
   friend std::ostream& operator<< (std::ostream&, const utente&);

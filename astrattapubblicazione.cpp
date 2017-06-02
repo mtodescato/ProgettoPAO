@@ -42,3 +42,36 @@ bool astrattaPubblicazione::operator!= (const astrattaPubblicazione& p2) const {
    writer.writeTextElement(QString::fromStdString("descrizione"),QString::fromStdString(descrizione));
    writer.writeTextElement(QString::fromStdString("lingua"),QString::fromStdString(linguaOriginale));
  }
+
+
+
+ bool astrattaPubblicazione::setTitolo(std::string nTitolo) {
+   if(nTitolo!="")
+     titolo = nTitolo;
+   return nTitolo != "";
+
+ }
+
+ bool astrattaPubblicazione::setAutore(std::string nAutore) {
+   if(nAutore!="")
+     autore = nAutore;
+   return nAutore!="";
+ }
+
+ bool astrattaPubblicazione::setDOI(std::string nDOI) {
+   DOI = nDOI;
+   return true;
+ }
+
+ void astrattaPubblicazione::setMateria(std::string nMateria) { materia=nMateria; }
+
+ void astrattaPubblicazione::setDescrizione(std::string nDescrizione) { descrizione = nDescrizione; }
+
+ void astrattaPubblicazione::setLinguaOriginale(std::string nLingua) { linguaOriginale = nLingua; }
+
+
+
+
+
+
+

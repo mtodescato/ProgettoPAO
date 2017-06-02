@@ -26,7 +26,18 @@ SOURCES += main.cpp \
     libro.cpp \
     articolorivista.cpp \
     filefactory.cpp \
-    listapubblicazioni.cpp
+    listapubblicazioni.cpp \
+    mainwindow.cpp \
+    mainwidget.cpp \
+    viewastrattapubblicazione.cpp \
+    maindialog.cpp \
+    viewfactory.cpp \
+    viewpubblicazioneonline.cpp \
+    viewastrattapubblicazionestampata.cpp \
+    viewarticolorivista.cpp \
+    viewlibro.cpp \
+    utentimaindialog.cpp \
+    viewutenti.cpp
 
 HEADERS  += \
     utente.h \
@@ -41,7 +52,18 @@ HEADERS  += \
     libro.h \
     articolorivista.h \
     filefactory.h \
-    listapubblicazioni.h
+    listapubblicazioni.h \
+    mainwindow.h \
+    mainwidget.h \
+    viewastrattapubblicazione.h \
+    maindialog.h \
+    viewfactory.h \
+    viewpubblicazoneonline.h \
+    viewastrattapubblicazionestampata.h \
+    viewarticolorivista.h \
+    viewlibro.h \
+    utentimaindialog.h \
+    viewutenti.h
 
 FORMS    +=
 

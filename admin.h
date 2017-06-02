@@ -10,6 +10,7 @@ public:
   bool canEdit() const;
   bool canView() const;
   std::string tipoUtente() const;
+  virtual admin* clone() const;
 };
 
 #endif // ADMIN_H
