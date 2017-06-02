@@ -107,25 +107,16 @@
    itemDeSelected();
    int c;
    switch(section) {
-     case 0:
-       if(!ordinatoTitolo)
-         c=0;
-       else
-         c=4;
+     case 0:!ordinatoTitolo ? c=0 : c=4;
        break;
-     case 1:
-       if(!ordinatoAutore)
-         c=1;
-       else
-         c=5;
+     case 1: !ordinatoAutore ? c=1 : c=5;
        break;
-     case 2:
-       if(!ordinatoCodiceRiferimento)
-         c=2;
-       else
-         c=6;
+     case 2: !ordinatoCodiceRiferimento ? c=2 : c=6;
        break;
      case 3: !ordinatoAnno ? c=3 : c=7;
+       break;
+     default:
+       c=-1;
        break;
      }
    ordinatoAutore= false;
@@ -344,7 +335,7 @@ void mainWidget::aggiungiUtente() {
 }
 
 void mainWidget::searchSlot(QString p) {
-   int i;
+   int i=-1;
    if(titoloRadio->isChecked())
       i = 1;
    else if (autoreRadio->isChecked())
