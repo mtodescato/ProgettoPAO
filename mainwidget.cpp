@@ -48,13 +48,10 @@
    layoutEdit->addWidget(modificaButton);
    layoutEdit->addWidget(eliminaButton);
 
-   QScrollArea* scrTable = new QScrollArea(this);
-   scrTable->resize(1200,700);
    gLayout->addLayout(layoutSearch,1,0);
    gLayout->addLayout(layoutSearch2,2,0);
-   gLayout->addWidget(scrTable);
+   gLayout->addWidget(tableP);
    gLayout->addLayout(layoutEdit,4,0);
-   scrTable->setWidget(tableP);
    loadLista();
    sort(0);
    creaMenuTendina();
