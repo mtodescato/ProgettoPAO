@@ -142,7 +142,7 @@ void utentiMainDialog::refreshListaOnEdit() {
 
 void utentiMainDialog::searchSlot(QString p) {
   for(int c = 0; c < viewLista->count();++c) {
-          if(viewLista->item(c)->data((Qt::DisplayRole)).toString().indexOf(p,0,Qt::CaseInsensitive)==-1)
+          if(viewLista->item(c)->data((Qt::DisplayRole)).toString().indexOf(p,0,Qt::CaseSensitive)==-1)
             viewLista->setRowHidden(c,true);
           else
             viewLista->setRowHidden(c,false);

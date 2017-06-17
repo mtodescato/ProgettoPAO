@@ -4,7 +4,7 @@
 login::login (listaUtenti& lst ,utente** l,QDialog* parent): QDialog(parent),lista(lst), log(l){
   setWindowTitle("Login");
   QPushButton* log = new QPushButton(tr("login"),this);
-  log->setMinimumSize(100,50);
+  log->setMinimumSize(50,30);
   passwd.setEchoMode(QLineEdit::Password);
   QFormLayout* Layout = new QFormLayout(this);
   Layout->addRow(tr("username"),&userName);
