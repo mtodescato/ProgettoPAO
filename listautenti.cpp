@@ -90,8 +90,11 @@ std::ostream& operator<< (std::ostream& os, const listaUtenti& list ) {
 
 bool listaUtenti::caricaListaUtenti() {
   QFile file("utenti.xml");
-  if(!file.open(QFile::ReadOnly))
+  if(!file.open(QFile::ReadOnly)) {
+    admin* p = new admin("admin","admin");
+    aggiungiUtente(*p);
     return false;
+    }
   QXmlStreamReader reader(&file);
   if(reader.readNextStartElement())
     if(reader.name() == "listaUtenti")

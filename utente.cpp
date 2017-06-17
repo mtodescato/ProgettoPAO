@@ -18,7 +18,8 @@ std::string utente::showPassword() const { return password; }
 
 bool utente::setUsername(std::string name) {
   if(name != "")
-    username=name; return true;
+    username=name;
+  return true;
 }
 
 void utente::setPassword(std::string passwd) { password=passwd; }

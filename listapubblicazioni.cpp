@@ -95,12 +95,13 @@ bool listaPubblicazioni::caricaListaPubblicazioni() {
     return false;
   QXmlStreamReader reader(&file);
 
-  if(reader.readNextStartElement())
+  if(reader.readNextStartElement()) {
     if(reader.name() == "listaPubblicazioni")
       while(reader.readNextStartElement()) {
       this->caricaPubblicazione(reader);
       reader.skipCurrentElement();
     }
+   }
     return true;
 }
 

@@ -8,6 +8,7 @@
 #include "articolorivista.h"
 #include "listapubblicazioni.h"
 #include <QDebug>
+#include <QMessageBox>
 
 int main(int argc, char *argv[])
 {
@@ -18,7 +19,13 @@ int main(int argc, char *argv[])
   relog=false;
   utente* usr = nullptr;
   listaUtenti listaU;
-  listaU.caricaListaUtenti();
+  bool failed = !(listaU.caricaListaUtenti());
+
+  if(failed) {
+      QMessageBox error;
+      error.critical(0,"errore","File utenti non trovato è stato inserito l'utente di default",QMessageBox::Ok);
+    }
+
   login log(listaU, &usr);
   log.exec();
   listaPubblicazioni listaP;
