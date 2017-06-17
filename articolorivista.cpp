@@ -7,7 +7,7 @@ articoloRivista* articoloRivista::clone() const { return new articoloRivista(*th
 
 QDate articoloRivista::getDataPubblicazione() const { return dataPubblicazione; }
 
-std::string articoloRivista::getCodiceRiferimento() const { return ISSN; }
+std::string articoloRivista::getCodiceRiferimento() const { return getDOI(); }
 
 std::string articoloRivista::getNomeRivista() const { return nomeRivivsta; }
 
@@ -71,7 +71,8 @@ bool articoloRivista::setDataPubblicazione(QString data) {
   return data != "";
 }
 
-
-
+std::string articoloRivista::getISSN() const {
+  return ISSN;
+}
 
 

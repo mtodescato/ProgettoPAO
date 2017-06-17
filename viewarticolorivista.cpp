@@ -6,7 +6,7 @@ void viewArticoloRivista::caricaCampiDati() {
   viewAstrattaPubblicazioneStampata::caricaCampiDati();
   articoloRivista* tmp = dynamic_cast<articoloRivista*>(pub);
   nomeRivista = new QLineEdit(QString::fromStdString(tmp->getNomeRivista()),this);
-  ISSN = new QLineEdit(QString::fromStdString(tmp->getCodiceRiferimento()),this);
+  ISSN = new QLineEdit(QString::fromStdString(tmp->getISSN()),this);
   numeroUscita = new QLineEdit(QString::number(tmp->getNumeroUscita()),this);
   dataPubblicazione = new QLineEdit((tmp->getDataPubblicazione()).toString("d/M/yyyy"),this);
   viewLayout->addRow("Nome rivista:", nomeRivista);
@@ -44,5 +44,5 @@ bool viewArticoloRivista::checkAndSet() {
 
 
 QString viewArticoloRivista::controlReferenceCode() {
-  return ISSN->text();
+  return DOI->text();
 }

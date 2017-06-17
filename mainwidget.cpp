@@ -271,6 +271,7 @@ void mainWidget::refreshListaOnAdd(astrattaPubblicazione* tmp) {
         error.critical(this,"","inserimento avvenuto con successo",QMessageBox::Ok);
         view->close();
         clearTable();
+        listaP.scriviListaPubblicazioni();
         loadLista();
         }
     }
