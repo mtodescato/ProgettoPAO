@@ -14,6 +14,8 @@ int main(int argc, char *argv[])
 {
   QApplication app(argc,argv);
   bool relog = true;
+  bool pcharged = false;
+  listaPubblicazioni listaP;
 
   while(relog == true) {
   relog=false;
@@ -28,11 +30,11 @@ int main(int argc, char *argv[])
 
   login log(listaU, &usr);
   log.exec();
-  listaPubblicazioni listaP;
-  listaP.caricaListaPubblicazioni();
   if(usr) {
-  listaPubblicazioni listaP;
+  if(!pcharged) {
   listaP.caricaListaPubblicazioni();
+  pcharged= true;
+  }
   mainwindow m(usr,listaU,listaP,&relog,0);
   m.show();
   app.exec();

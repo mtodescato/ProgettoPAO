@@ -229,6 +229,7 @@ void mainWidget::addPubblicazione() {
   listaTipoPubblicazioni<<"Libro";
   bool accettato = false;
   QString tipo = dialogInputType->getItem(this,"Creazione Pubblicazione","Selezionare il tipo di pubblicazione da creare:",listaTipoPubblicazioni,0,false,&accettato);
+  delete dialogInputType;
   if(accettato){
   astrattaPubblicazione* tmp = fileFactory::buildForGui(tipo);
   view = new mainDialog(tmp,user,true,listaP);
@@ -321,9 +322,10 @@ void mainWidget::slotRelog() {
 }
 
 void mainWidget::gestisciUtenti() {
-  utentiMainDialog* gestioneUtenti = new utentiMainDialog(listaU,user,0);
+  gestioneUtenti = new utentiMainDialog(listaU,user,0);
   gestioneUtenti->setModal(true);
   gestioneUtenti->show();
+
 }
 
 void mainWidget::aggiungiUtente() {

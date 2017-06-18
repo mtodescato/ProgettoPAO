@@ -46,6 +46,7 @@ private:
   QPushButton* eliminaButton;
   mainDialog* view;
   QGridLayout* gLayout;
+  utentiMainDialog* gestioneUtenti;
 
   bool ordinatoTitolo;
   bool ordinatoAutore;

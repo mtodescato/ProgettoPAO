@@ -100,6 +100,7 @@ void utentiMainDialog::aggiungiUtente() {
   listaTipoUtenti<<"Amministratore";
   bool accettato = false;
   QString tipo = dialogInputType->getItem(this,"Creazione utente","Selezionare il tipo di utente da creare:",listaTipoUtenti,0,false,&accettato);
+  delete dialogInputType;
   if(accettato){
   utente* tmp = nullptr;
   if(tipo.toStdString() == "Utente")
@@ -112,7 +113,8 @@ void utentiMainDialog::aggiungiUtente() {
   connect(view,SIGNAL(listChanged(utente*)),this,SLOT(refreshListaOnAdd(utente*)));
   view->setModal(true);
   view->exec();
-  if(!(listaU.utentePresente(*tmp)))
+
+  if(tmp && !(listaU.utentePresente(*tmp)))
     delete tmp;
   }
 }
