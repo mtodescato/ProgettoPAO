@@ -324,15 +324,20 @@ void mainWidget::slotRelog() {
 void mainWidget::gestisciUtenti() {
   gestioneUtenti = new utentiMainDialog(listaU,user,0);
   gestioneUtenti->setModal(true);
-  gestioneUtenti->show();
+  gestioneUtenti->exec();
+  utentiMainDialog* p = gestioneUtenti;
+  gestioneUtenti = nullptr;
+  delete p;
 
 }
 
 void mainWidget::aggiungiUtente() {
-  utentiMainDialog* gestioneUtenti = new utentiMainDialog(listaU,user,0);
+  gestioneUtenti = new utentiMainDialog(listaU,user,0);
   connect(this,SIGNAL(addUsr()),gestioneUtenti,SLOT(aggiungiUtente()));
   emit addUsr();
-
+  utentiMainDialog* p = gestioneUtenti;
+  gestioneUtenti = nullptr;
+  delete p;
 }
 
 void mainWidget::searchSlot(QString p) {

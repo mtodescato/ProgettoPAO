@@ -54,6 +54,7 @@ bool listaPubblicazioni::togliPubblicazione(const std::string& publ) {
   astrattaPubblicazione* pub = pubblicazionePresente(publ);
   if(pub) {
       pubblicazioni.erase(std::find(pubblicazioni.begin(),pubblicazioni.end(),pub));
+      delete pub;
       return true;
     }
   else

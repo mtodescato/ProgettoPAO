@@ -55,6 +55,7 @@ bool listaUtenti::togliUtente(std::string nome) {
   utente* p = utentePresente(nome);
   if(p) {
       lista.erase(std::find(lista.begin(),lista.end(),p));
+      delete p;
       return true;
     }
   else

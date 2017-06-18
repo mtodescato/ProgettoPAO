@@ -7,7 +7,7 @@ libro* libro::clone() const { return new libro(*this); }
 
 QDate libro::getDataPubblicazione() const { return QDate(annoDiPubblicazione,1,1); }
 
-std::string libro::getCodiceRiferimento() const { return ISBN; };
+std::string libro::getCodiceRiferimento() const { return ISBN; }
 
 std::string libro::getTipo() const { return "libro"; }
 
