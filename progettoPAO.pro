@@ -19,7 +19,6 @@ SOURCES += main.cpp \
     moderatore.cpp \
     listautenti.cpp \
     login.cpp \
-    funzioniutili.cpp \
     astrattapubblicazione.cpp \
     pubblicazioneonline.cpp \
     astrattapubblicazionestampata.cpp \
@@ -45,7 +44,6 @@ HEADERS  += \
     moderatore.h \
     listautenti.h \
     login.h \
-    funzioniutili.h \
     astrattapubblicazione.h \
     pubblicazioneonline.h \
     astrattapubblicazionestampata.h \

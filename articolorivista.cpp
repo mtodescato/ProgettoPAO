@@ -75,4 +75,10 @@ std::string articoloRivista::getISSN() const {
   return ISSN;
 }
 
+bool articoloRivista::setDOI(std::string nDOI) {
+  if(nDOI != "")
+    astrattaPubblicazione::setDOI(nDOI);
+  return nDOI!="";
+}
+
 

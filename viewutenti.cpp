@@ -1,6 +1,7 @@
 #include "viewutenti.h"
 
 viewUtenti::viewUtenti(listaUtenti& lista,utente* usr,bool e,QDialog* parent):QDialog(parent),listaU(lista),user(usr),onEdit(e) {
+  setWindowTitle("QtPubblications");
   QFormLayout* layout = new QFormLayout();
   username = new QLineEdit(QString::fromStdString(user->showUsername()),this);
   password = new QLineEdit(QString::fromStdString(user->showPassword()),this);

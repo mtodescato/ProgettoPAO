@@ -9,6 +9,7 @@ void viewLibro::caricaCampiDati() {
   ISBN = new QLineEdit(QString::fromStdString(tmp->getCodiceRiferimento()),this);
   viewLayout->addRow("Anno di pubblicazione:", annoDiPubblicazione);
   viewLayout->addRow("ISBN*:", ISBN);
+  ISBN->setCursorPosition(0);
 
   connect(annoDiPubblicazione,SIGNAL(textEdited(QString)),this,SLOT(valueChanged()));
   connect(ISBN,SIGNAL(textEdited(QString)),this,SLOT(valueChanged()));

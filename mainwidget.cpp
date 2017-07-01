@@ -53,7 +53,6 @@
    gLayout->addWidget(tableP);
    gLayout->addLayout(layoutEdit,4,0);
    loadLista();
-   sort(0);
    creaMenuTendina();
 
    connect(tableP->horizontalHeader(),SIGNAL(sectionClicked(int)),this,SLOT(sort(int)));
@@ -275,6 +274,10 @@ void mainWidget::refreshListaOnAdd(astrattaPubblicazione* tmp) {
         listaP.scriviListaPubblicazioni();
         loadLista();
         }
+      tableP->horizontalHeaderItem(0)->setText("Titolo");
+      tableP->horizontalHeaderItem(1)->setText("Autore");
+      tableP->horizontalHeaderItem(2)->setText("Codice Riferimento");
+      tableP->horizontalHeaderItem(3)->setText("Anno Pubblicazione");
     }
   else {
       QMessageBox error;

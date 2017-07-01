@@ -70,6 +70,19 @@ bool astrattaPubblicazione::operator!= (const astrattaPubblicazione& p2) const {
  void astrattaPubblicazione::setLinguaOriginale(std::string nLingua) { linguaOriginale = nLingua; }
 
 
+ std::string astrattaPubblicazione::readXmlString(QXmlStreamReader& reader) {
+   if(reader.readNextStartElement())
+     return (reader.readElementText()).toStdString();
+   else
+     return "";
+ }
+
+ int astrattaPubblicazione::readXmlint(QXmlStreamReader& reader) {
+   if(reader.readNextStartElement())
+     return (reader.readElementText()).toInt();
+   else
+     return 0;
+ }
 
 
 

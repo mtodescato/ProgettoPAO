@@ -3,6 +3,7 @@
 
 mainDialog::mainDialog(astrattaPubblicazione* p, utente* usr, bool f, listaPubblicazioni& list, QDialog* parent):QDialog(parent),pub(p),loggedUser(usr),listaP(list),forEdit(f)
 {
+    setWindowTitle("QtPubblications");
     guiPub =  viewFactory::buildView(pub,0);
     guiPub->caricaCampiDati();
     guiPub->setEditablility(forEdit);

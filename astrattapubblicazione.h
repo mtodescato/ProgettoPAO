@@ -5,7 +5,6 @@
 #include <iostream>
 #include <QDate>
 #include <QXmlStreamWriter>
-#include "funzioniutili.h"
 
 class astrattaPubblicazione {
 private:
@@ -15,6 +14,9 @@ private:
   std::string materia;
   std::string descrizione;
   std::string linguaOriginale;
+protected:
+  static std::string readXmlString(QXmlStreamReader& );
+  static int readXmlint(QXmlStreamReader& );
 public:
   astrattaPubblicazione(const std::string&, const std::string&, const std::string& ="", const std::string& ="", const std::string& ="", const std::string& ="" );
   virtual ~astrattaPubblicazione() = default;

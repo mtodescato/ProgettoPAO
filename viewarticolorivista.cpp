@@ -10,9 +10,12 @@ void viewArticoloRivista::caricaCampiDati() {
   numeroUscita = new QLineEdit(QString::number(tmp->getNumeroUscita()),this);
   dataPubblicazione = new QLineEdit((tmp->getDataPubblicazione()).toString("d/M/yyyy"),this);
   viewLayout->addRow("Nome rivista:", nomeRivista);
-  viewLayout->addRow("ISSN*:", ISSN);
-  viewLayout->addRow("Numero Uscita*:", numeroUscita);
+  viewLayout->addRow("ISSN:", ISSN);
+  viewLayout->addRow("Numero Uscita:", numeroUscita);
   viewLayout->addRow("Data pubblicazione*:", dataPubblicazione);
+
+  nomeRivista->setCursorPosition(0);
+  ISSN->setCursorPosition(0);
 
   connect(nomeRivista,SIGNAL(textEdited(QString)),this,SLOT(valueChanged()));
   connect(ISSN,SIGNAL(textEdited(QString)),this,SLOT(valueChanged()));
@@ -31,10 +34,10 @@ void viewArticoloRivista::setEditablility(bool editable) {
 bool viewArticoloRivista::checkAndSet() {
   articoloRivista* tmp = dynamic_cast<articoloRivista*>(pub);
   if(viewAstrattaPubblicazioneStampata::checkAndSet() &&
-     tmp->setISSN(ISSN->text().toStdString()) &&
-     tmp->setNumeroUscita(numeroUscita->text().toInt()) &&
      tmp->setDataPubblicazione(dataPubblicazione->text())
      ) {
+      tmp->setNumeroUscita(numeroUscita->text().toInt());
+      tmp->setISSN(ISSN->text().toStdString());
       tmp->setNomeRivista(nomeRivista->text().toStdString());
       return true;
     }

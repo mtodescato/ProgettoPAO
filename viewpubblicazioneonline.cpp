@@ -12,6 +12,9 @@ void viewPubblicazioneOnline::caricaCampiDati() {
   viewLayout->addRow("Link alla pubblicazione*:", linkPubblicazione);
   viewLayout->addRow("Data pubblicazione*:", dataPubblicazione);
 
+  sitoPubblicazione->setCursorPosition(0);
+  linkPubblicazione->setCursorPosition(0);
+
   connect(sitoPubblicazione,SIGNAL(textEdited(QString)),this,SLOT(valueChanged()));
   connect(linkPubblicazione,SIGNAL(textEdited(QString)),this,SLOT(valueChanged()));
   connect(dataPubblicazione,SIGNAL(textEdited(QString)),this,SLOT(valueChanged()));

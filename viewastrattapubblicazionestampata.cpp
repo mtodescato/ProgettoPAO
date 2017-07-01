@@ -7,7 +7,7 @@ void viewAstrattaPubblicazioneStampata::caricaCampiDati() {
   astrattaPubblicazioneStampata* tmp = dynamic_cast<astrattaPubblicazioneStampata*>(pub);
   casaEditrice = new QLineEdit(QString::fromStdString(tmp->getCasaEditrice()),this);
   viewLayout->addRow("Casa editrice: ", casaEditrice);
-
+  casaEditrice->setCursorPosition(0);
   connect(casaEditrice,SIGNAL(textEdited(QString)),this,SLOT(valueChanged()));
 }
 

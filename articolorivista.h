@@ -22,6 +22,7 @@ public:
   static articoloRivista* importFromXml(QXmlStreamReader& );
   virtual void scriviPubblicazione(QXmlStreamWriter& ) const;
   void setNomeRivista(std::string);
+  virtual bool setDOI(std::string);
   bool setISSN(std::string);
   bool setNumeroUscita(unsigned int);
   bool setDataPubblicazione(QString);

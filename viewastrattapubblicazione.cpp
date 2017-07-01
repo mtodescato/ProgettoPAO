@@ -11,9 +11,21 @@ void viewAstrattaPubblicazione::caricaCampiDati() {
   materia =new QLineEdit(QString::fromStdString(pub->getMateria()),this);
   descrizione = new QTextEdit(QString::fromStdString(pub->getDescrizione()),this);
   linguaOriginale = new QLineEdit(QString::fromStdString(pub->getLinguaOriginale()),this);
+
+  titolo->setCursorPosition(0);
+  autore->setCursorPosition(0);
+  DOI->setCursorPosition(0);
+  materia->setCursorPosition(0);
+  linguaOriginale->setCursorPosition(0);
+
   viewLayout->addRow("Titolo*: ", titolo);
   viewLayout->addRow("Autore*: ", autore);
-  viewLayout->addRow("DOI*: ", DOI);
+  libro* tmp = dynamic_cast<libro*>(pub);
+  if(!tmp )
+    viewLayout->addRow("DOI*: ", DOI);
+  else
+    viewLayout->addRow("DOI: ", DOI);
+
   viewLayout->addRow("Materia: ", materia);
   viewLayout->addRow("Descrizione: ", descrizione);
   viewLayout->addRow("Lingua orginale: ", linguaOriginale);
