@@ -1,7 +1,7 @@
 #ifndef ARTICOLORIVISTA_H
 #define ARTICOLORIVISTA_H
-
 #include "astrattapubblicazionestampata.h"
+
 
 class articoloRivista : public astrattaPubblicazioneStampata {
 private:
