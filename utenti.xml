@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<listaUtenti>
+    <utente>
+        <username>moderatore</username>
+        <password>moderatore</password>
+        <tipoUtente>moderatore</tipoUtente>
+    </utente>
+    <utente>
+        <username>utente</username>
+        <password>utente</password>
+        <tipoUtente>utente</tipoUtente>
+    </utente>
+    <utente>
+        <username>admin</username>
+        <password>admin</password>
+        <tipoUtente>admin</tipoUtente>
+    </utente>
+</listaUtenti>

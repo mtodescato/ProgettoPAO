@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<listaPubblicazioni>
+    <articoloRivista>
+        <titolo>Can apparent superluminal neutrino speeds be explained as a quantum weak measurement?</titolo>
+        <autore>M.V. Berry</autore>
+        <doi>10.1088/1751-8113/44/49/492001</doi>
+        <materia>fisica</materia>
+        <descrizione>Probably not</descrizione>
+        <lingua>inglese</lingua>
+        <casaEditrice></casaEditrice>
+        <nomeRivivsta>
+Journal of Physics A: Mathematical and Theoretical
+Journal of Physics A: Mathematical and Theoretical</nomeRivivsta>
+        <issn>17518121</issn>
+        <numeroUscita>49</numeroUscita>
+        <anno>2011</anno>
+        <mese>11</mese>
+        <giorno>11</giorno>
+    </articoloRivista>
+    <articoloRivista>
+        <titolo>Equilibrium points in n-person games </titolo>
+        <autore>John F. Nash, Jr.</autore>
+        <doi>10.1073/pnas.36.1.48</doi>
+        <materia></materia>
+        <descrizione></descrizione>
+        <lingua></lingua>
+        <casaEditrice></casaEditrice>
+        <nomeRivivsta></nomeRivivsta>
+        <issn>56799432</issn>
+        <numeroUscita>36</numeroUscita>
+        <anno>1950</anno>
+        <mese>11</mese>
+        <giorno>16</giorno>
+    </articoloRivista>
+    <articoloRivista>
+        <titolo>Is the sequence of earthquakes in Southern California, with aftershocks removed, Poissonian?</titolo>
+        <autore>J. K. Gardner</autore>
+        <doi>10.12691/ajcea-3-5-2</doi>
+        <materia></materia>
+        <descrizione>yes</descrizione>
+        <lingua>inglese</lingua>
+        <casaEditrice></casaEditrice>
+        <nomeRivivsta>
+American Journal of Civil Engineering and Architecture.</nomeRivivsta>
+        <issn>2328-398X</issn>
+        <numeroUscita>26</numeroUscita>
+        <anno>2015</anno>
+        <mese>1</mese>
+        <giorno>31</giorno>
+    </articoloRivista>
+    <libro>
+        <titolo>The Design of Rijndael</titolo>
+        <autore>Joen Daemen,Vincent Rijmen</autore>
+        <doi></doi>
+        <materia>crittografia</materia>
+        <descrizione>This book is about the design of Rijndael, the block cipher that became
+the Advanced Encryption Standard (AES) . According to the 'Handbook of
+Applied Cryptography' [68] , a block cipher can be described as follows:
+A block cipher is a function which maps n-bit plaintext blocks to n­
+bit ciphertext blocks; n is called the block length. [ . . . J The function
+is parameterized by a key.
+Although block ciphers are used in many interesting applications such as e­
+commerce and e-security, this book is not about applications. Instead, this
+book gives a detailed description of Rijndael and explains the design strategy
+that was used to develop it .</descrizione>
+        <lingua>inglese</lingua>
+        <casaEditrice>Springer-Verlag</casaEditrice>
+        <annoDiPubblicazione>1965</annoDiPubblicazione>
+        <isbn>3-540-42580-2</isbn>
+    </libro>
+    <articoloRivista>
+        <titolo>The work of John F. Nash Jr. in game theory</titolo>
+        <autore>Kuhn, H.W.</autore>
+        <doi>10.1215/S0012-7094-95-08102-2</doi>
+        <materia></materia>
+        <descrizione></descrizione>
+        <lingua>inglese</lingua>
+        <casaEditrice></casaEditrice>
+        <nomeRivivsta>Duke Mathematical Journal</nomeRivivsta>
+        <issn>00127094</issn>
+        <numeroUscita>81</numeroUscita>
+        <anno>1995</anno>
+        <mese>6</mese>
+        <giorno>17</giorno>
+    </articoloRivista>
+    <articoloRivista>
+        <titolo>Antioxidative mechanisms in chlorogenic acid</titolo>
+        <autore>Tošović, J.</autore>
+        <doi>10.1016/j.foodchem.2017.05.080</doi>
+        <materia>food chemistry</materia>
+        <descrizione>Although chlorogenic acid (5CQA) is an important ingredient of various foods and beverages, mechanisms of its antioxidative action have not been fully clarified. Besides electron spin resonance experiment, this study includes thermodynamic and mechanistic investigations of the hydrogen atom transfer (HAT), radical adduct formation (RAF), sequential proton loss electron transfer (SPLET), and single electron transfer – proton transfer (SET-PT) mechanisms of 5CQA in benzene, ethanol, and water solutions. The calculations were performed using the M06-2X/6-311++G(d,p) level of theory and CPCM solvation model. It was found that SET-PT is not a plausible antioxidative mechanism of 5CQA. RAF pathways are faster, but HAT yields thermodynamically more stable radical products, indicating that in acidic and neutral media 5CQA can take either HAT or RAF pathways. In basic environment (e.g. at physiological pH) SPLET is the likely antioxidative mechanism of 5CQA with extremely high rate. © 2017 Elsevier Ltd</descrizione>
+        <lingua>inglese</lingua>
+        <casaEditrice>Elsevier Ltd</casaEditrice>
+        <nomeRivivsta>Food Chemistry</nomeRivivsta>
+        <issn>03088146</issn>
+        <numeroUscita>237</numeroUscita>
+        <anno>2016</anno>
+        <mese>12</mese>
+        <giorno>15</giorno>
+    </articoloRivista>
+    <pubblicazioneOnline>
+        <titolo>Military cryptoanalysis</titolo>
+        <autore>William F. Friedman</autore>
+        <doi>200.2947/.939289</doi>
+        <materia>cittorgafia</materia>
+        <descrizione>		</descrizione>
+        <lingua>inglese</lingua>
+        <sitoPubblicazione>NSA.gov</sitoPubblicazione>
+        <linkPubblicazione>https://www.nsa.gov/news-features/declassified-documents/military-cryptanalysis</linkPubblicazione>
+        <anno>2005</anno>
+        <mese>9</mese>
+        <giorno>19</giorno>
+    </pubblicazioneOnline>
+    <articoloRivista>
+        <titolo>Analytical investigation of different operational scenarios of a novel greenhouse combined with solar stills</titolo>
+        <autore>Salah, A.H.</autore>
+        <doi>10.1016/j.applthermaleng.2017.05.022</doi>
+        <materia></materia>
+        <descrizione>This study is an analytical investigation for the performance of a new stand-alone agriculture Green House (GH) integrated with on-roof Transparent Solar Stills (TSS) to be a self-sufficient of irrigation requirements. This system utilizes the surplus solar energy via direct solar desalination in TSS and Humidification-Dehumidification (HDH) process as two sources for water production. The effect of using the on-roof TSS on the GH performance, the power required for heating and fans operation at different climate conditions is discussed. The paper investigates the effect of the fresh air ratio and the bypass ratio for the condenser of the cooling system on the internal micro-climatic conditions of the GH. For different climatic conditions of Borg-Elarab, Egypt, controlling both the condenser bypass and fresh air ratios can be used to satisfy the required micro-climate conditions and water requirements for plant growth and minimize the power consumption for cooling system. The results show that the daily average temperature inside the GH can be increased during winter. Furthermore, the system can produce a sufficient amount of fresh water during summer. The system can only produce a maximum amount of water of 2.44 L/m2⋅day during the coldest day which indicates the need for additional solar stills to be installed if a higher amount of water is required. In general, recovering the extra solar radiation to either produce fresh water via on-roof TSS or reduce the power consumption by cooling, heating and ventilation systems is the main advantage of the new proposed GH system. This work is a good applied example for food, water, energy and climate change Nexus which covers the main elements of Sustainable Development Goals (SDGs).</descrizione>
+        <lingua>inglese</lingua>
+        <casaEditrice>Elsevier Ltd</casaEditrice>
+        <nomeRivivsta>Applied Thermal Engineering</nomeRivivsta>
+        <issn>13594311</issn>
+        <numeroUscita>122</numeroUscita>
+        <anno>2017</anno>
+        <mese>7</mese>
+        <giorno>25</giorno>
+    </articoloRivista>
+</listaPubblicazioni>
