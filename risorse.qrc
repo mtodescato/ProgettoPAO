@@ -1,6 +1,0 @@
-<RCC>
-    <qresource prefix="/risorse">
-        <file>utenti.xml</file>
-        <file>pubblicazioni.xml</file>
-    </qresource>
-</RCC>
